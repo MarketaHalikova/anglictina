@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import logic.Hra;
 
+
 /**
 
  * 
@@ -16,21 +17,21 @@ import logic.Hra;
 public class Application extends javafx.application.Application {
 
 
-
 	@Override
-	public void start(Stage primaryStage) throws Exception {		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass()
-		          .getResource("Home.fxml"));
-		Parent root = loader.load();
+	public void start(Stage primaryStage) throws Exception {	
+		Hra hra = new Hra();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                "Home.fxml"));
+          Parent root = (Parent) loader.load();
+          HomeController ctrl = loader.getController();
+          ctrl.inicializuj(hra);;
 
-		HomeController controller = loader.getController();
-		//controller.inicializuj(new  Hra());
-		
-        primaryStage.setTitle("Angliètina");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-		
+          Scene newScene = new Scene(root);
+          Stage newStage = new Stage();
+          newStage.setScene(newScene);
+          newStage.show();
 	}
+		
+	
 
 }

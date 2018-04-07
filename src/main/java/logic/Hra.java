@@ -31,8 +31,8 @@ public class Hra extends Observable{
         Slovo hroch = new Slovo("hroch", "hippo");
         Slovo mys = new Slovo("myš", "mouse");
         Slovo delfin = new Slovo("delfín", "dolphin");
-        Slovo chobotnice = new Slovo("chobotnice", "octopus");
-        Slovo velryba = new Slovo("velryba", "whale");
+        Slovo kun = new Slovo("kùò", "horse");
+        Slovo krava = new Slovo("kráva", "cow");
         
         seznamSlov.pridejSlovo(pes);
         seznamSlov.pridejSlovo(kocka);
@@ -42,8 +42,8 @@ public class Hra extends Observable{
         seznamSlov.pridejSlovo(hroch);
         seznamSlov.pridejSlovo(mys);
         seznamSlov.pridejSlovo(delfin);
-        seznamSlov.pridejSlovo(chobotnice);
-        seznamSlov.pridejSlovo(velryba);
+        seznamSlov.pridejSlovo(kun);
+        seznamSlov.pridejSlovo(krava);
 
         }
     
@@ -90,6 +90,10 @@ public class Hra extends Observable{
     
     public String getSpatneneToString(){
     	return Integer.toString(spatneTipy);
+    }
+    
+    public SeznamSlov getSeznamSlov(){
+    	return seznamSlov;
     }
     
     }
