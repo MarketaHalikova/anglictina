@@ -3,7 +3,7 @@ package logic;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Observable;
-import logic.SeznamSlov;
+
 
 public class Hra extends Observable{
 
@@ -16,11 +16,12 @@ public class Hra extends Observable{
 
 	public Hra() {
         
-        this.seznamSlov = new SeznamSlov();
+		this.seznamSlov = new SeznamSlov();
+		
         vlozSlova();
 	}
 	
-    private void vlozSlova(){
+    public void vlozSlova(){
         	
         Slovo pes = new Slovo("pes", "dog");
         Slovo kocka = new Slovo("koèka", "cat");
@@ -47,7 +48,7 @@ public class Hra extends Observable{
         }
     
     
-    private void vybratHadaneSlovo(){
+    public void vybratHadaneSlovo(){
     	
     	final Random randomGenerator = new Random();
     	ArrayList<Slovo> listSesti = new ArrayList<>();
@@ -60,8 +61,11 @@ public class Hra extends Observable{
     }
     
     
-    private Boolean jeSpravne(Slovo tip){
+    public Boolean jeSpravne(Slovo tip){
     	
+    	setChanged();
+        notifyObservers();
+        
     	if(tip == hadaneSlovo){
     		this.spraveTipy ++;
     		return true;
@@ -71,15 +75,21 @@ public class Hra extends Observable{
     	}
     }
     
-    private Boolean jeUzKonec(){
+    public Boolean jeUzKonec(){
     	
-    	setChanged();
-        notifyObservers();
     	if(spraveTipy == 10){
     		return true;		
     	} else {
     		return false;
     	}
+    }
+    
+    public String getSpravneToString(){
+    	return Integer.toString(spraveTipy);
+    }
+    
+    public String getSpatneneToString(){
+    	return Integer.toString(spatneTipy);
     }
     
     }
