@@ -2,10 +2,10 @@ package logic;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+import java.util.Observable;
 import logic.SeznamSlov;
 
-public class Hra {
+public class Hra extends Observable{
 
 	private boolean konecHry = false;
 	private SeznamSlov seznamSlov;
@@ -73,6 +73,8 @@ public class Hra {
     
     private Boolean jeUzKonec(){
     	
+    	setChanged();
+        notifyObservers();
     	if(spraveTipy == 10){
     		return true;		
     	} else {
