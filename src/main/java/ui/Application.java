@@ -25,9 +25,9 @@ public class Application extends javafx.application.Application {
 		Parent root = loader.load();
 
 		HomeController controller = loader.getController();
-		controller.inicializuj(new  Hra());
+		//controller.inicializuj(new  Hra());
 		
-        primaryStage.setTitle("HRA Pacient");
+        primaryStage.setTitle("Angliètina");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 		

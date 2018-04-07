@@ -33,6 +33,8 @@ public class HomeController extends BorderPane implements Observer{
 	
 	}
 	
+	//button.setStyle("-fx-background-image: url('/testing/background.jpg')");
+	
 	
 }
 
