@@ -66,10 +66,9 @@ public class HomeController extends BorderPane implements Observer{
 		spravne.setText(hra.getSpravneToString());
 		spatne.setText(hra.getSpatneneToString());
 		if(hra.jeUzKonec()){
-			Alert alert = new Alert(AlertType.INFORMATION, hra.epilog());
-			alert.showAndWait();
-			alert.setHeaderText(null);
 			hadejButton.setDisable(true);
+			Alert alert = new Alert(AlertType.INFORMATION, hra.epilog());
+			alert.show();
 		}
 
 	}
@@ -123,16 +122,31 @@ public class HomeController extends BorderPane implements Observer{
 			(clicked.equals("obrazek5") && obrazek5.getAccessibleText().equals(hadaneSlovo.getCesky()))||
 			(clicked.equals("obrazek6") && obrazek6.getAccessibleText().equals(hadaneSlovo.getCesky()))){
 			
-		hra.jeSpravne(true);
-		hadejLabel.setText("");
 		hadejButton.setDisable(false);
+		hra.jeSpravne(true);
+		if(!hra.jeUzKonec()){
+		Alert alert = new Alert(AlertType.INFORMATION, "SPRÁVNÌ\n\nZkus další :)");
+		alert.show();}
+		obrazek1.setDisable(true);
+		obrazek2.setDisable(true);
+		obrazek3.setDisable(true);
+		obrazek4.setDisable(true);
+		obrazek5.setDisable(true);
+		obrazek6.setDisable(true);
+		hadejLabel.setText("");
+
+		
 		
 			
 		} else {
+			Alert alert = new Alert(AlertType.INFORMATION, "ŠPATNÌ\n\nZkus to znovu :)");
+			alert.show();
 			hra.jeSpravne(false);
+
 		}
 
 	}
+	
 	
 }
 

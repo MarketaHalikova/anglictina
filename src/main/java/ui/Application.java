@@ -26,10 +26,10 @@ public class Application extends javafx.application.Application {
           HomeController ctrl = loader.getController();
           ctrl.inicializuj(hra);;
 
-          Scene newScene = new Scene(root);
-          Stage newStage = new Stage();
-          newStage.setScene(newScene);
-          newStage.show();
+          primaryStage.setTitle("Angliètina");
+          primaryStage.setScene(new Scene(root));
+          primaryStage.show();
+          
 	}
 		
 	

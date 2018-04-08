@@ -72,7 +72,7 @@ public class Hra extends Observable{
     
     public Boolean jeUzKonec(){
     	
-    	if(spravneTipy == 10){
+    	if(spravneTipy == 2){
     		return true;		
     	} else {
     		return false;
@@ -94,9 +94,9 @@ public class Hra extends Observable{
     public String epilog(){
     	return "Dokonèil jsi zkoušení. Tvé skóre je:\n\n" +
     			"správné tipy: " + spravneTipy  +
-    			"ku\n" +
+    			"\nku\n" +
     			"špatnéné tipy: " + spatneTipy  +
-    			"\nPokud chceš zaèít nové zkoušení, zvol v menu Nová Hra"	
+    			"\n\nPokud chceš zaèít nové zkoušení, zvol v menu Nová Hra"	
     			;
     }
 
