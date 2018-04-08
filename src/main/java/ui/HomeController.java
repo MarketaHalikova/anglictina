@@ -9,6 +9,8 @@ import java.util.Observer;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -63,6 +65,12 @@ public class HomeController extends BorderPane implements Observer{
 	
 		spravne.setText(hra.getSpravneToString());
 		spatne.setText(hra.getSpatneneToString());
+		if(hra.jeUzKonec()){
+			Alert alert = new Alert(AlertType.INFORMATION, hra.epilog());
+			alert.showAndWait();
+			alert.setHeaderText(null);
+			hadejButton.setDisable(true);
+		}
 
 	}
 	
@@ -118,6 +126,7 @@ public class HomeController extends BorderPane implements Observer{
 		hra.jeSpravne(true);
 		hadejLabel.setText("");
 		hadejButton.setDisable(false);
+		
 			
 		} else {
 			hra.jeSpravne(false);

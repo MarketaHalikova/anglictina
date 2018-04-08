@@ -7,10 +7,8 @@ import java.util.Observable;
 
 public class Hra extends Observable{
 
-	private boolean konecHry = false;
 	private SeznamSlov seznamSlov;
-	private Slovo hadaneSlovo;
-	private int spraveTipy;
+	private int spravneTipy;
 	private int spatneTipy;
 	
 
@@ -63,7 +61,7 @@ public class Hra extends Observable{
     	
         
     	if(spravne){
-    		this.spraveTipy ++;
+    		this.spravneTipy ++;
     	} else {
     		this.spatneTipy ++;
     	}
@@ -74,7 +72,7 @@ public class Hra extends Observable{
     
     public Boolean jeUzKonec(){
     	
-    	if(spraveTipy == 10){
+    	if(spravneTipy == 10){
     		return true;		
     	} else {
     		return false;
@@ -82,7 +80,7 @@ public class Hra extends Observable{
     }
     
     public String getSpravneToString(){
-    	return Integer.toString(spraveTipy);
+    	return Integer.toString(spravneTipy);
     }
     
     public String getSpatneneToString(){
@@ -92,6 +90,16 @@ public class Hra extends Observable{
     public SeznamSlov getSeznamSlov(){
     	return seznamSlov;
     }
+    
+    public String epilog(){
+    	return "Dokonèil jsi zkoušení. Tvé skóre je:\n\n" +
+    			"správné tipy: " + spravneTipy  +
+    			"ku\n" +
+    			"špatnéné tipy: " + spatneTipy  +
+    			"\nPokud chceš zaèít nové zkoušení, zvol v menu Nová Hra"	
+    			;
+    }
+
     
     }
 	
