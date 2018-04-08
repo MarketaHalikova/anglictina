@@ -30,7 +30,7 @@ public class HomeController extends BorderPane implements Observer{
 	@FXML private Label spravne;
 	@FXML private Label spatne;
 	@FXML private Label hadejLabel;
-	@FXML private Button hadej;
+	@FXML private Button hadejButton;
 	@FXML private Button obrazek1;
 	@FXML private Button obrazek2;
 	@FXML private Button obrazek3;
@@ -43,9 +43,7 @@ public class HomeController extends BorderPane implements Observer{
 
 		this.hra = hra;
 		this.hra.addObserver(this);
-		displayObrazky(hra.getSeznamSlov().nahodnychSest());
-		hadaneSlovo = hra.vybratHadaneSlovo();
-		hadejLabel.setText(hadaneSlovo.getAnglicky());
+		
 		
 	}
 	
@@ -58,9 +56,7 @@ public class HomeController extends BorderPane implements Observer{
 	
 		spravne.setText(hra.getSpravneToString());
 		spatne.setText(hra.getSpatneneToString());
-		if(hra.jeUzKonec()){
-			hadej.setVisible(false);
-		}
+
 	}
 	
 	
@@ -88,6 +84,18 @@ public class HomeController extends BorderPane implements Observer{
 		
 	}
 	
+	public void hadej(){
+		ArrayList<Slovo> listSesti = new ArrayList<>();
+		listSesti = hra.getSeznamSlov().nahodnychSest();
+		displayObrazky(listSesti);
+		hadaneSlovo = hra.vybratHadaneSlovo(listSesti);
+		hadejLabel.setText(hadaneSlovo.getAnglicky());
+		hadejButton.setDisable(true);
+	}
+	
+	public void zkontroluj(){
+		
+	}
 	
 }
 

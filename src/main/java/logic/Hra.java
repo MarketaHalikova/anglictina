@@ -48,10 +48,9 @@ public class Hra extends Observable{
         }
     
     
-    public Slovo vybratHadaneSlovo(){
+    public Slovo vybratHadaneSlovo(ArrayList<Slovo> listSesti){
     	
     	final Random randomGenerator = new Random();
-    	ArrayList<Slovo> listSesti = new ArrayList<>();
     	listSesti = seznamSlov.nahodnychSest();
     	
     	int index = randomGenerator.nextInt(seznamSlov.nahodnychSest().size());
