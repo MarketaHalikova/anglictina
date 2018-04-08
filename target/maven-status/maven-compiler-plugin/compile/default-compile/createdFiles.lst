@@ -1,0 +1,5 @@
+logic\Hra.class
+ui\Application.class
+logic\Slovo.class
+logic\SeznamSlov.class
+ui\HomeController.class
