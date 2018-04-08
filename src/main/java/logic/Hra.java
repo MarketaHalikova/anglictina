@@ -72,7 +72,7 @@ public class Hra extends Observable{
     
     public Boolean jeUzKonec(){
     	
-    	if(spravneTipy == 2){
+    	if(spravneTipy == 10){
     		return true;		
     	} else {
     		return false;
@@ -99,7 +99,14 @@ public class Hra extends Observable{
     			"\n\nPokud chceš zaèít nové zkoušení, zvol v menu Nová Hra"	
     			;
     }
-
+    
+    public void setSpravneTipy(int i){
+    	spravneTipy = i;
+    }
+    
+    public void setSpatneTipy(int i){
+    	spatneTipy = i;
+    }
     
     }
 	

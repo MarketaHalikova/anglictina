@@ -157,6 +157,17 @@ public class HomeController extends BorderPane implements Observer{
 
 	}
 	
+	public void novaHra(){
+
+		hadejButton.setDisable(false);
+		hadejLabel.setText("");
+		hra.setSpravneTipy(-1);
+		hra.setSpatneTipy(0);
+		hra.jeSpravne(true);
+		inicializuj(hra);
+		
+	}
+	
 	
 }
 
