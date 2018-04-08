@@ -18,8 +18,8 @@ public class Slovo {
 	    /**
 	     * Vytvoøí nové slovo se zadaným èeským a anglickým významem.
 	     * 
-	     * @param    cesky          èeský význam slova
-	     * @param    anglicky          anglický význam slova
+	     * @param    String
+	     * @param    String
 	     */
 	    public Slovo(String cesky, String anglicky)
 	    {
@@ -31,7 +31,7 @@ public class Slovo {
 	    /**
 	     * Vrátí èeský význam slova
 	     * 
-	     * @returns    cesky (èeský význam)
+	     * @returns   String
 	     */
 	    public String getCesky()
 	    {
@@ -41,7 +41,7 @@ public class Slovo {
 	    /**
 	     * Vrátí anglický význam slova
 	     * 
-	     * @returns    anglicky (anglický význam)
+	     * @returns    String
 	     */
 	    public String getAnglicky()
 	    {
@@ -51,7 +51,7 @@ public class Slovo {
 	    /**
 	     * Nastaví nový èeský význam slova
 	     * 
-	     * @param    cesky (nový èeský význam)
+	     * @param    String
 	     */
 	    public void setCesky(String cesky)
 	    {
@@ -61,7 +61,7 @@ public class Slovo {
 	    /**
 	     * Nastaví nový anglický význam slova
 	     * 
-	     * @param    panglicky (nový anglický význam)
+	     * @param    String
 	     */
 	    public void setAnglicky(String anglicky)
 	    {

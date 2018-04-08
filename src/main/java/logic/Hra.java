@@ -4,23 +4,36 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Observable;
 
-
+/**
+ * Tøída Hra - tøída pøedstavující logiku hry Angliètina.
+ * 
+ * Toto je hlavní tøída logiky aplikace. Tøída vytváøí seznam slov pro zkoušení,
+ * metody, potøebné pro práci se seznamem,
+ * poèítá správné a špatné tipy a vrací epilog
+ *
+ * @author     Markéta Halíková
+ * @version    LS 2017/2018
+ */
 public class Hra extends Observable{
 
 	private SeznamSlov seznamSlov;
 	private int spravneTipy;
 	private int spatneTipy;
 	
-
-	public Hra() {
-        
-		this.seznamSlov = new SeznamSlov();
-		
+	/**
+	 * konstruktor vytváøí nový seznam slov
+	 * a volá metodu vlozSlova(), kteá jej naplní
+	 */
+	public Hra() {    
+		this.seznamSlov = new SeznamSlov();	
         vlozSlova();
 	}
 	
-    public void vlozSlova(){
-        	
+	/**
+	 * Metoda inicializuje nová slova pro hru
+	 * a plní jimi seznam
+	 */
+    public void vlozSlova(){      	
         Slovo pes = new Slovo("pes", "DOG");
         Slovo kocka = new Slovo("koèka", "CAT");
         Slovo lev = new Slovo("lev", "LION");
@@ -62,10 +75,13 @@ public class Hra extends Observable{
         seznamSlov.pridejSlovo(slon);
         seznamSlov.pridejSlovo(velbloud);
         seznamSlov.pridejSlovo(had);
-
         }
     
-    
+    /**
+	 * Metoda z ArrayListu vybírá náhodné slovo a vrací jej
+	 * @param ArrayList<Slovo>
+	 * @return Slovo
+	 */
     public Slovo vybratHadaneSlovo(ArrayList<Slovo> listSesti){
     	
     	final Random randomGenerator = new Random();
@@ -76,20 +92,27 @@ public class Hra extends Observable{
         return hadaneSlovo;
     }
     
-    
-    public void jeSpravne(Boolean spravne){
-    	
+    /**
+	 * Metoda dle hodnoty parametru pøièítá správné nebo špatné tipy
+	 * upozoròuje observer pøi své zmìnì
+	 * @param Boolean
+	 */
+    public void jeSpravne(Boolean spravne){  	
         
     	if(spravne){
     		this.spravneTipy ++;
     	} else {
     		this.spatneTipy ++;
-    	}
-    	
+    	}  	
     	setChanged();
         notifyObservers();
     }
     
+    /**
+	 * Metoda vyhodnocuje, zda už je konec hra
+	 * - pokud je správných tipù 10
+	 * @return Boolean
+	 */
     public Boolean jeUzKonec(){
     	
     	if(spravneTipy == 10){
@@ -99,31 +122,54 @@ public class Hra extends Observable{
     	}
     }
     
+    /**
+	 * Metoda vrací poèet správných tipù jako String
+	 * @return String
+	 */
     public String getSpravneToString(){
     	return Integer.toString(spravneTipy);
     }
     
+    /**
+	 * Metoda vrací poèet špatných tipù jako String
+	 * @return String
+	 */
     public String getSpatneneToString(){
     	return Integer.toString(spatneTipy);
     }
     
+    /**
+	 * Metoda vrací seznam slov
+	 * @return SeznamSlov
+	 */
     public SeznamSlov getSeznamSlov(){
     	return seznamSlov;
     }
     
+    /**
+	 * Metoda vrací epilog hry
+	 * @return String
+	 */
     public String epilog(){
     	return "Dokonèil jsi zkoušení. Tvé skóre je:\n\n" +
     			"správné tipy: " + spravneTipy  +
     			"\nku\n" +
     			"špatné tipy: " + spatneTipy  +
-    			"\n\nPokud chceš zaèít nové zkoušení, zvol v menu Nová Hra"	
-    			;
+    			"\n\nPokud chceš zaèít nové zkoušení, zvol v menu Nová Hra"	;
     }
     
+    /**
+	 * Metoda pøiøazuje hodnotu správných tipù
+	 * @param int
+	 */
     public void setSpravneTipy(int i){
     	spravneTipy = i;
     }
     
+    /**
+	 * Metoda pøiøazuje hodnotu špatných tipù
+	 * @param int
+	 */
     public void setSpatneTipy(int i){
     	spatneTipy = i;
     }
