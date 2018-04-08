@@ -31,6 +31,16 @@ public class Hra extends Observable{
         Slovo delfin = new Slovo("delfín", "DOLPHIN");
         Slovo kun = new Slovo("kùò", "HORSE");
         Slovo krava = new Slovo("kráva", "COW");
+        Slovo had = new Slovo("had", "SNAKE");
+        Slovo velbloud = new Slovo("velbloud", "CAMEL");
+        Slovo slon = new Slovo("slon", "ELEPHANT");
+        Slovo ovce = new Slovo("ovce", "SHEEP");
+        Slovo orel = new Slovo("orel", "EAGLE");
+        Slovo opice = new Slovo("opice", "MONKEY");
+        Slovo myval = new Slovo("mýval", "RACOON");
+        Slovo kralik = new Slovo("králík", "RABBIT");
+        Slovo koza = new Slovo("koza", "GOAT");
+        Slovo jezek = new Slovo("ježek", "HEDGEHOG");
         
         seznamSlov.pridejSlovo(pes);
         seznamSlov.pridejSlovo(kocka);
@@ -42,6 +52,16 @@ public class Hra extends Observable{
         seznamSlov.pridejSlovo(delfin);
         seznamSlov.pridejSlovo(kun);
         seznamSlov.pridejSlovo(krava);
+        seznamSlov.pridejSlovo(jezek);
+        seznamSlov.pridejSlovo(koza);
+        seznamSlov.pridejSlovo(kralik);
+        seznamSlov.pridejSlovo(myval);
+        seznamSlov.pridejSlovo(opice);
+        seznamSlov.pridejSlovo(orel);
+        seznamSlov.pridejSlovo(ovce);
+        seznamSlov.pridejSlovo(slon);
+        seznamSlov.pridejSlovo(velbloud);
+        seznamSlov.pridejSlovo(had);
 
         }
     
@@ -95,7 +115,7 @@ public class Hra extends Observable{
     	return "Dokonèil jsi zkoušení. Tvé skóre je:\n\n" +
     			"správné tipy: " + spravneTipy  +
     			"\nku\n" +
-    			"špatnéné tipy: " + spatneTipy  +
+    			"špatné tipy: " + spatneTipy  +
     			"\n\nPokud chceš zaèít nové zkoušení, zvol v menu Nová Hra"	
     			;
     }
