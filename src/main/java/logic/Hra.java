@@ -51,7 +51,6 @@ public class Hra extends Observable{
     public Slovo vybratHadaneSlovo(ArrayList<Slovo> listSesti){
     	
     	final Random randomGenerator = new Random();
-    	listSesti = seznamSlov.nahodnychSest();
     	
     	int index = randomGenerator.nextInt(seznamSlov.nahodnychSest().size());
         Slovo hadaneSlovo = listSesti.get(index);
@@ -60,18 +59,17 @@ public class Hra extends Observable{
     }
     
     
-    public Boolean jeSpravne(Slovo tip){
+    public void jeSpravne(Boolean spravne){
+    	
+        
+    	if(spravne){
+    		this.spraveTipy ++;
+    	} else {
+    		this.spatneTipy ++;
+    	}
     	
     	setChanged();
         notifyObservers();
-        
-    	if(tip == hadaneSlovo){
-    		this.spraveTipy ++;
-    		return true;
-    	} else {
-    		this.spatneTipy ++;
-    		return false;
-    	}
     }
     
     public Boolean jeUzKonec(){
