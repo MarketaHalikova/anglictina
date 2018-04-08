@@ -23,16 +23,16 @@ public class Hra extends Observable{
 	
     public void vlozSlova(){
         	
-        Slovo pes = new Slovo("pes", "dog");
-        Slovo kocka = new Slovo("koèka", "cat");
-        Slovo lev = new Slovo("lev", "lion");
-        Slovo zirafa = new Slovo("žirafa", "giraffe");
-        Slovo zelva = new Slovo("želva", "turtle");
-        Slovo hroch = new Slovo("hroch", "hippo");
-        Slovo mys = new Slovo("myš", "mouse");
-        Slovo delfin = new Slovo("delfín", "dolphin");
-        Slovo kun = new Slovo("kùò", "horse");
-        Slovo krava = new Slovo("kráva", "cow");
+        Slovo pes = new Slovo("pes", "DOG");
+        Slovo kocka = new Slovo("koèka", "CAT");
+        Slovo lev = new Slovo("lev", "LION");
+        Slovo zirafa = new Slovo("žirafa", "GIRAFFE");
+        Slovo zelva = new Slovo("želva", "TURTLE");
+        Slovo hroch = new Slovo("hroch", "HIPPO");
+        Slovo mys = new Slovo("myš", "MOUSE");
+        Slovo delfin = new Slovo("delfín", "DOLPHIN");
+        Slovo kun = new Slovo("kùò", "HORSE");
+        Slovo krava = new Slovo("kráva", "COW");
         
         seznamSlov.pridejSlovo(pes);
         seznamSlov.pridejSlovo(kocka);
@@ -48,7 +48,7 @@ public class Hra extends Observable{
         }
     
     
-    public void vybratHadaneSlovo(){
+    public Slovo vybratHadaneSlovo(){
     	
     	final Random randomGenerator = new Random();
     	ArrayList<Slovo> listSesti = new ArrayList<>();
@@ -57,7 +57,7 @@ public class Hra extends Observable{
     	int index = randomGenerator.nextInt(seznamSlov.nahodnychSest().size());
         Slovo hadaneSlovo = listSesti.get(index);
         
-        this.hadaneSlovo = hadaneSlovo;
+        return hadaneSlovo;
     }
     
     
