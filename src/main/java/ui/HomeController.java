@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 
 
@@ -74,6 +75,30 @@ public class HomeController extends BorderPane implements Observer{
 	}
 	
 	
+
+	
+	public void hadej(){
+		ArrayList<Slovo> listSesti = new ArrayList<>();
+		listSesti = hra.getSeznamSlov().nahodnychSest();
+		displayObrazky(listSesti);
+		this.hadaneSlovo = hra.vybratHadaneSlovo(listSesti);
+		hadejLabel.setText(hadaneSlovo.getAnglicky());
+		hadejButton.setDisable(true);
+		obrazek1.setDisable(false);
+		obrazek2.setDisable(false);
+		obrazek3.setDisable(false);
+		obrazek4.setDisable(false);
+		obrazek5.setDisable(false);
+		obrazek6.setDisable(false);
+		
+		obrazek1.setTooltip(new Tooltip(obrazek1.getAccessibleText()));
+		obrazek2.setTooltip(new Tooltip(obrazek2.getAccessibleText()));
+		obrazek3.setTooltip(new Tooltip(obrazek3.getAccessibleText()));
+		obrazek4.setTooltip(new Tooltip(obrazek4.getAccessibleText()));
+		obrazek5.setTooltip(new Tooltip(obrazek5.getAccessibleText()));
+		obrazek6.setTooltip(new Tooltip(obrazek6.getAccessibleText()));
+	}
+	
 	private void displayObrazky(ArrayList<Slovo> nahodnychSest) {
 		
 		String obr1 = nahodnychSest.get(0).getCesky();
@@ -95,21 +120,6 @@ public class HomeController extends BorderPane implements Observer{
 		obrazek6.setStyle("-fx-background-image: url('/"+obr6+".jpg')");
 		obrazek6.setAccessibleText(obr6);
 
-	}
-	
-	public void hadej(){
-		ArrayList<Slovo> listSesti = new ArrayList<>();
-		listSesti = hra.getSeznamSlov().nahodnychSest();
-		displayObrazky(listSesti);
-		this.hadaneSlovo = hra.vybratHadaneSlovo(listSesti);
-		hadejLabel.setText(hadaneSlovo.getAnglicky());
-		hadejButton.setDisable(true);
-		obrazek1.setDisable(false);
-		obrazek2.setDisable(false);
-		obrazek3.setDisable(false);
-		obrazek4.setDisable(false);
-		obrazek5.setDisable(false);
-		obrazek6.setDisable(false);
 	}
 	
 	public void zkontroluj(final ActionEvent event){
